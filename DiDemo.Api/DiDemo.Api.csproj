@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DiDemo.Abstractions\DiDemo.Abstractions.csproj" />
     <ProjectReference Include="..\DiDemo.Data\DiDemo.Data.csproj" />
+    <ProjectReference Include="..\DiDemo.Formatting\DiDemo.Formatting.csproj" />
     <ProjectReference Include="..\DiDemo.Logging\DiDemo.Logging.csproj" />
     <ProjectReference Include="..\DiDemo.Services\DiDemo.Services.csproj" />
   </ItemGroup>

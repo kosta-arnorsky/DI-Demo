@@ -1,6 +1,6 @@
 ﻿using DiDemo.Services.CompanyServices;
 
-namespace DiDemo.Api.Extensions
+namespace DiDemo.Formatting
 {
     public static class CompanyPriceExtension
     {

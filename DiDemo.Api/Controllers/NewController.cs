@@ -1,5 +1,5 @@
 ﻿using DiDemo.Abstractions;
-using DiDemo.Api.Extensions;
+using DiDemo.Formatting;
 using DiDemo.Services.CompanyServices;
 using Microsoft.AspNetCore.Mvc;
 

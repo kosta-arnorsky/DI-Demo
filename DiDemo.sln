@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiDemo.Api", "DiDemo.Api\DiDemo.Api.csproj", "{C816FE0B-4A8E-45EE-A64C-6146CD97AF4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiDemo.Api", "DiDemo.Api\DiDemo.Api.csproj", "{C816FE0B-4A8E-45EE-A64C-6146CD97AF4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiDemo.Services", "DiDemo.Services\DiDemo.Services.csproj", "{E1BFF5F5-12DA-408D-85D8-D01C4AF79A9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiDemo.Services", "DiDemo.Services\DiDemo.Services.csproj", "{E1BFF5F5-12DA-408D-85D8-D01C4AF79A9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiDemo.Abstractions", "DiDemo.Abstractions\DiDemo.Abstractions.csproj", "{5667F511-8317-4E9A-A16E-B148145E79D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiDemo.Abstractions", "DiDemo.Abstractions\DiDemo.Abstractions.csproj", "{5667F511-8317-4E9A-A16E-B148145E79D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiDemo.Logging", "DiDemo.Logging\DiDemo.Logging.csproj", "{051E7E47-F13F-4296-8FD9-B0C6A29A622A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiDemo.Logging", "DiDemo.Logging\DiDemo.Logging.csproj", "{051E7E47-F13F-4296-8FD9-B0C6A29A622A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiDemo.Data", "DiDemo.Data\DiDemo.Data.csproj", "{8ED1F906-430F-40A0-B8BA-4BC5B1793E63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiDemo.Data", "DiDemo.Data\DiDemo.Data.csproj", "{8ED1F906-430F-40A0-B8BA-4BC5B1793E63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiDemo.Tests", "DiDemo.Tests\DiDemo.Tests.csproj", "{2EF81BAD-80AD-46AE-91A0-5D15F3B2914C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiDemo.Tests", "DiDemo.Tests\DiDemo.Tests.csproj", "{2EF81BAD-80AD-46AE-91A0-5D15F3B2914C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiDemo.FrameworkApi", "DiDemo.FrameworkApi\DiDemo.FrameworkApi.csproj", "{CFF789C7-90B6-4EDD-B3E3-1A6843056D78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiDemo.Formatting", "DiDemo.Formatting\DiDemo.Formatting.csproj", "{77C87EF3-D4D1-4277-ACB2-EAC35F29677A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{2EF81BAD-80AD-46AE-91A0-5D15F3B2914C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EF81BAD-80AD-46AE-91A0-5D15F3B2914C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EF81BAD-80AD-46AE-91A0-5D15F3B2914C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF789C7-90B6-4EDD-B3E3-1A6843056D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF789C7-90B6-4EDD-B3E3-1A6843056D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF789C7-90B6-4EDD-B3E3-1A6843056D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF789C7-90B6-4EDD-B3E3-1A6843056D78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C87EF3-D4D1-4277-ACB2-EAC35F29677A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C87EF3-D4D1-4277-ACB2-EAC35F29677A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C87EF3-D4D1-4277-ACB2-EAC35F29677A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C87EF3-D4D1-4277-ACB2-EAC35F29677A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

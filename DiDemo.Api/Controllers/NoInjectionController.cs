@@ -1,5 +1,5 @@
-﻿using DiDemo.Api.Extensions;
-using DiDemo.Data;
+﻿using DiDemo.Data;
+using DiDemo.Formatting;
 using DiDemo.Logging;
 using DiDemo.Services.CompanyServices;
 using DiDemo.Services.Stock;

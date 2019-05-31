@@ -1,31 +1,28 @@
 ﻿using DiDemo.Formatting;
 using DiDemo.Services.CompanyServices;
-using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Web.Http;
 
-namespace DiDemo.Api.Controllers
+namespace DiDemo.FrameworkApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class DemoController : ControllerBase
+    public class DemoController : ApiController
     {
         private readonly ICompanyPriceProvider _companyPriceProvider;
 
         public DemoController(ICompanyPriceProvider companyPriceProvider)
         {
-            // Example 1, part 2: DI
             _companyPriceProvider = companyPriceProvider;
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(long id)
+        public IHttpActionResult Get(long id)
         {
             var companyPrice = _companyPriceProvider.GetCompany(id);
             if (companyPrice == null)
             {
-                return NotFound();
+                return StatusCode(HttpStatusCode.NotFound);
             }
 
-            return companyPrice.ToStringFormat();
+            return Ok(companyPrice.ToStringFormat());
         }
     }
 }
