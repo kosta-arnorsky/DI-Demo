@@ -36,7 +36,7 @@ namespace DiDemo.Api.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(long id)
         {
-            var companyPrice = _companyPriceProvider.GetCompany(id);
+            var companyPrice = _companyPriceProvider.GetPrice(id);
             RegisterForDispose();
             if (companyPrice == null)
             {

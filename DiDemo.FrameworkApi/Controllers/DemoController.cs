@@ -16,7 +16,7 @@ namespace DiDemo.FrameworkApi.Controllers
 
         public IHttpActionResult Get(long id)
         {
-            var companyPrice = _companyPriceProvider.GetCompany(id);
+            var companyPrice = _companyPriceProvider.GetPrice(id);
             if (companyPrice == null)
             {
                 return StatusCode(HttpStatusCode.NotFound);

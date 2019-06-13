@@ -24,7 +24,7 @@ namespace DiDemo.Api.Controllers
         {
             _logger.Log("NewController is called");
 
-            var companyPrice = _companyPriceProvider.GetCompany(id);
+            var companyPrice = _companyPriceProvider.GetPrice(id);
             if (companyPrice == null)
             {
                 return NotFound();

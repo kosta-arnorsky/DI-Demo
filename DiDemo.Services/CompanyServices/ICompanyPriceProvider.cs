@@ -2,6 +2,6 @@
 {
     public interface ICompanyPriceProvider
     {
-        CompanyPrice GetCompany(long id);
+        CompanyPrice GetPrice(long id);
     }
 }

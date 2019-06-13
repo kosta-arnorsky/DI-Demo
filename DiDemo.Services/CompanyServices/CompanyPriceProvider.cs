@@ -16,7 +16,7 @@ namespace DiDemo.Services.CompanyServices
             _pricesProvider = pricesProvider;
         }
 
-        public CompanyPrice GetCompany(long id)
+        public CompanyPrice GetPrice(long id)
         {
             var company = _companyService.GetCompany(id);
             if (company != null)
