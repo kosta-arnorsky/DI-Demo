@@ -3,5 +3,7 @@
     public interface ICompanyRepository
     {
         Company GetCompany(long id);
+
+        Company FindCompany(string name);
     }
 }

@@ -1,11 +1,35 @@
 ﻿using DiDemo.Abstractions;
 using DiDemo.Services.CompanyServices;
+using System;
 using System.Data;
+using System.Linq;
 
 namespace DiDemo.Data
 {
     public class DbCompanyRepository : ICompanyRepository
     {
+        private static readonly Company[] _fakeStorage =
+        {
+            new Company
+            {
+                Id = 2,
+                Name = "MICROSOFT",
+                StockId = "MSFT"
+            },
+            new Company
+            {
+                Id = 3,
+                Name = "GOOGLE",
+                StockId = "GOOGL"
+            },
+            new Company
+            {
+                Id = 5,
+                Name = "FACEBOOK",
+                StockId = "FB"
+            }
+        };
+
         private readonly IDbConnection _connection;
         private readonly ILogger _logger;
 
@@ -21,30 +45,19 @@ namespace DiDemo.Data
 
             using (var command = _connection.CreateCommand())
             {
-                // a DB query
-                switch (id)
-                {
-                    case 2:
-                        return new Company
-                        {
-                            Name = "MICROSOFT",
-                            StockId = "MSFT"
-                        };
-                    case 3:
-                        return new Company
-                        {
-                            Name = "GOOGLE",
-                            StockId = "GOOGL"
-                        };
-                    case 5:
-                        return new Company
-                        {
-                            Name = "FACEBOOK",
-                            StockId = "FB"
-                        };
-                    default:
-                        return null;
-                }
+                // A DB query
+                return _fakeStorage.FirstOrDefault(c => c.Id == id);
+            }
+        }
+
+        public Company FindCompany(string name)
+        {
+            _logger.Log($"Query company name {name}.");
+
+            using (var command = _connection.CreateCommand())
+            {
+                // A DB query
+                return _fakeStorage.FirstOrDefault(c => c.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
             }
         }
     }
