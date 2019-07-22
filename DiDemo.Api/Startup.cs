@@ -1,5 +1,7 @@
 ﻿using DiDemo.Abstractions;
 using DiDemo.Api.Logging;
+using DiDemo.Api.Services;
+using DiDemo.Api.Services.Background;
 using DiDemo.Api.Staging;
 using DiDemo.Data;
 using DiDemo.Logging;
@@ -30,11 +32,14 @@ namespace DiDemo.Api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpContextAccessor();
 
+            services.AddHostedService<BackgroundWorkService>();
+
             // Example 1, part 3: DI setup
             services.Configure<PricesProviderOptions>(Configuration.GetSection("PricesProvider"));
 
             // A new instance per dependency
             services.AddTransient<ICompanyPriceProvider, CompanyPriceProvider>();
+            services.AddTransient<IBackgroundCompanyPriceService, BackgroundCompanyPriceService>();
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<IPricesProvider, PricesProvider>();
             services.AddTransient<ICompanyRepository, DbCompanyRepository>();
@@ -48,15 +53,8 @@ namespace DiDemo.Api
             // Example 4: swap implantations
             //services.AddSingleton<ILogger, WebLogger>();
 
-            // Example 6: scope
-            //services.AddTransient<JustAnExample> (sp =>
-            //{
-            //    using (var scope = sp.CreateScope())
-            //    {
-            //        var stockRepository = scope.ServiceProvider.GetService<IStockRepository>();
-            //        var prices = stockRepository.GetPrices("RGEN");
-            //    }
-            //});
+            // It's crucial for the queue to be a singleton
+            services.AddSingleton<BackgroundWorkQueue>();
         }
 
         private int SqlConnection(string v)
