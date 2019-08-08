@@ -46,13 +46,23 @@ namespace DiDemo.FrameworkApi
                .RegisterType<DbCompanyRepository>()
                .As<ICompanyRepository>();
             builder
-               .RegisterType<DbStockRepository>()
+               .Register(c => new DbCompanyRepository(
+                   c.ResolveNamed<IDbConnection>("CompanyRepositoryConnection"),
+                   c.Resolve<ILogger>()))
+               .As<ICompanyRepository>();
+            builder
+               .Register(c => new DbStockRepository(
+                   c.ResolveNamed<IDbConnection>("StockRepositoryConnection")))
                .As<IStockRepository>();
 
             // A new instance per scope
             builder
-               .Register(c => new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString))
-               .As<IDbConnection>()
+               .Register(c => new SqlConnection(ConfigurationManager.ConnectionStrings["CompanyRepositoryDbConnectionString"].ConnectionString))
+               .Named<IDbConnection>("CompanyRepositoryConnection")
+               .InstancePerLifetimeScope();
+            builder
+               .Register(c => new SqlConnection(ConfigurationManager.ConnectionStrings["StockRepositoryDbConnectionString"].ConnectionString))
+               .Named<IDbConnection>("StockRepositoryConnection")
                .InstancePerLifetimeScope();
 
             // Singleton
