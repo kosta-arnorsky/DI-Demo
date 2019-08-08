@@ -43,7 +43,7 @@ namespace DiDemo.Api.Services.Background
                 // A long operation
                 await Task.Delay(3333, _cancellationToken);
 
-                // Example 6: scope
+                // BOOKMARK: 6.2 scope
                 using (var scope = _serviceScopeFactory.CreateScope())
                 {
                     var companyPriceProvider = scope.ServiceProvider.GetService<ICompanyPriceProvider>();

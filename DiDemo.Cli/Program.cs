@@ -32,6 +32,7 @@ namespace DiDemo.Cli
 
                 while (!command.Equals(ExitKeyword, StringComparison.CurrentCultureIgnoreCase))
                 {
+                    // BOOKMARK: 6.1 scope
                     using (var scope = container.CreateChildContainer())
                     {
                         PrintCompanyPrice(scope, command);
@@ -68,6 +69,7 @@ namespace DiDemo.Cli
 
         private static IUnityContainer BuildContainer(string[] args)
         {
+            // BOOKMARK: 5.2 Unity
             var container = new UnityContainer();
             try
             {

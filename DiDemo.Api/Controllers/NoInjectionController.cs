@@ -21,7 +21,7 @@ namespace DiDemo.Api.Controllers
         {
             const int maxCountOfPrices = 3; // Read from config
 
-            // Example 1, part 1: no DI
+            // BOOKMARK: 1.2 no DI
             _dbConnection = new SqlConnection("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Demo;Integrated Security=SSPI;");
             _companyPriceProvider = new CompanyPriceProvider(
                 new CompanyService(new DbCompanyRepository(_dbConnection, new ConsoleLogger())),

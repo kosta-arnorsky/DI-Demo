@@ -12,7 +12,7 @@ namespace DiDemo.Api.Controllers
 
         public DemoController(ICompanyPriceProvider companyPriceProvider)
         {
-            // Example 1, part 2: DI
+            // BOOKMARK: 1.1 DI
             _companyPriceProvider = companyPriceProvider;
         }
 

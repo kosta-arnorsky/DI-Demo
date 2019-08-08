@@ -12,8 +12,8 @@ namespace DiDemo.Api.Controllers
         private readonly ICompanyPriceProvider _companyPriceProvider;
         private readonly ILogger _logger;
 
-        // Example 1, part 4: reuse
-        public NewController(ICompanyPriceProvider companyPriceProvider, ILogger logger /* Example 1, part 5: add dependency */)
+        // BOOKMARK: 1.4 reuse
+        public NewController(ICompanyPriceProvider companyPriceProvider, ILogger logger /* BOOKMARK: 1.5 add dependency */)
         {
             _companyPriceProvider = companyPriceProvider;
             _logger = logger;

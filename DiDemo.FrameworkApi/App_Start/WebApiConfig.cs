@@ -20,6 +20,7 @@ namespace DiDemo.FrameworkApi
     {
         public static void Register(HttpConfiguration config)
         {
+            // BOOKMARK: 5.1 Autofac
             var builder = new ContainerBuilder();
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
@@ -55,6 +56,7 @@ namespace DiDemo.FrameworkApi
                    c.ResolveNamed<IDbConnection>("StockRepositoryConnection")))
                .As<IStockRepository>();
 
+            // BOOKMARK: 7.1 named dependency
             // A new instance per scope
             builder
                .Register(c => new SqlConnection(ConfigurationManager.ConnectionStrings["CompanyRepositoryDbConnectionString"].ConnectionString))

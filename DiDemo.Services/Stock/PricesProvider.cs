@@ -10,7 +10,7 @@ namespace DiDemo.Services.Stock
         private readonly IStockRepository _stockRepository;
 
         public PricesProvider(
-            IOptions<PricesProviderOptions> options, // Example 3, part 1: explicit dependencies
+            IOptions<PricesProviderOptions> options, // BOOKMARK: 3.1 explicit dependencies
             IStockRepository stockRepository)
         {
             _options = options.Value;
@@ -22,7 +22,7 @@ namespace DiDemo.Services.Stock
             var prices = _stockRepository.GetPrices(stockId);
             if (prices != null)
             {
-                // Example 3, part 2: compare to ConfigurationManager.AppSettings["MaxCountOfPrices"]
+                // BOOKMARK: 3.2 compare to ConfigurationManager.AppSettings["MaxCountOfPrices"]
                 prices = prices.Take(_options.MaxCountOfPrices).ToArray();
             }
 

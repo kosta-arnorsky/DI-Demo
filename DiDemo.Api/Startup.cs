@@ -30,12 +30,13 @@ namespace DiDemo.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // BOOKMARK: 5.3 ASP.NET Core
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpContextAccessor();
 
             services.AddHostedService<BackgroundWorkService>();
 
-            // Example 1, part 3: DI setup
+            // BOOKMARK: 1.3 DI setup
             services.Configure<PricesProviderOptions>(Configuration.GetSection("PricesProvider"));
 
             // A new instance per dependency
@@ -51,6 +52,7 @@ namespace DiDemo.Api
             services.AddTransient(sp => new SomeConsumer(sp.GetService<Tuple<IService, SomeConsumer>>().Item1, sp.GetService<ILogger>()));
             services.AddTransient(sp => new AnotherConsumer(sp.GetService<Tuple<IService, AnotherConsumer>>().Item1));
 
+            // BOOKMARK: 7.2 "named" dependency
             // A new instance per scope (request in case of ASP.NET)
             // Replace with AddTransient to see the difference
             services.AddScoped(sp => Tuple.Create<IService, SomeConsumer>(
@@ -60,6 +62,7 @@ namespace DiDemo.Api
                 new AnotherService(),
                 null));
 
+            // BOOKMARK: 7.3 "named" dependency
             services.AddScopedSqlConnection<DbCompanyRepository>(sp
                 => new SqlConnection(Configuration.GetValue<string>("CompanyRepositoryDbConnectionString")));
             services.AddScopedSqlConnection<StockRepositoryMock>(sp
@@ -67,7 +70,7 @@ namespace DiDemo.Api
 
             // Single instance
             services.AddSingleton<ILogger, ConsoleLogger>();
-            // Example 4: swap implantations
+            // BOOKMARK: 4.1 swap implantations
             //services.AddSingleton<ILogger, WebLogger>();
 
             // It's crucial for the queue to be a singleton

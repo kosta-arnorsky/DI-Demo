@@ -17,7 +17,7 @@ namespace DiDemo.Tests
                     Name = "TEST"
                 });
 
-            // Example 2: mocking easier
+            // BOOKMARK: 2 mocking easier
             var service = new CompanyService(repositoryMock.Object);
             var company = service.GetCompany(123);
 

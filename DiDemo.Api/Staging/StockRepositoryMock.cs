@@ -18,7 +18,7 @@ namespace DiDemo.Api.Staging
         {
             switch (stockId)
             {
-                // Example 5: fake a specific case
+                // BOOKMARK: 4.2 fake a specific case
                 case "FB":
                     return new decimal[] { 777.11m, 888.22m, 999.33m };
                 default:
