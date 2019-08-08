@@ -1,41 +1,35 @@
 ﻿using DiDemo.Services.Stock;
-using System.Linq;
 
 namespace DiDemo.Services.CompanyServices
 {
     public class CompanyPriceProvider : ICompanyPriceProvider
     {
         private readonly ICompanyService _companyService;
-        private readonly IPricesProvider _pricesProvider;
+        private readonly IPriceProvider _priceProvider;
 
         public CompanyPriceProvider(
             ICompanyService companyService,
-            IPricesProvider pricesProvider)
+            IPriceProvider priceProvider)
         {
             _companyService = companyService;
-            _pricesProvider = pricesProvider;
+            _priceProvider = priceProvider;
         }
 
         public CompanyPrice GetPrice(long id)
         {
+            CompanyPrice companyPrice = null;
+
             var company = _companyService.GetCompany(id);
             if (company != null)
             {
-                var companyPrice = new CompanyPrice
+                companyPrice = new CompanyPrice
                 {
-                    Name = company.Name
+                    Name = company.Name,
+                    Price = _priceProvider.GetAveragePrice(company.StockId)
                 };
-
-                var prices = _pricesProvider.GetLastPrices(company.StockId);
-                if (prices != null && prices.Any())
-                {
-                    companyPrice.Price = prices.Average();
-                }
-
-                return companyPrice;
             }
 
-            return null;
+            return companyPrice;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace DiDemo.Services.Stock
 {
-    public class PricesProviderOptions
+    public class PriceProviderOptions
     {
         public int MaxCountOfPrices { get; set; }
     }

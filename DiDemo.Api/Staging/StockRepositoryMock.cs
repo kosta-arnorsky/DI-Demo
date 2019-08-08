@@ -14,7 +14,7 @@ namespace DiDemo.Api.Staging
             _dbRepository = new DbStockRepository(connection);
         }
 
-        public IReadOnlyCollection<decimal> GetPrices(string stockId)
+        public IReadOnlyCollection<decimal> GetPrices(string stockId, int maxCount)
         {
             switch (stockId)
             {
@@ -22,7 +22,7 @@ namespace DiDemo.Api.Staging
                 case "FB":
                     return new decimal[] { 777.11m, 888.22m, 999.33m };
                 default:
-                    return _dbRepository.GetPrices(stockId);
+                    return _dbRepository.GetPrices(stockId, maxCount);
             }
         }
     }

@@ -3,9 +3,9 @@ namespace DiDemo.Services.NamedExample
 {
     public class AnotherConsumer
     {
-        private readonly IService _service;
+        private readonly SomeService _service;
 
-        public AnotherConsumer(IService service)
+        public AnotherConsumer(SomeService service)
         {
             _service = service;
         }

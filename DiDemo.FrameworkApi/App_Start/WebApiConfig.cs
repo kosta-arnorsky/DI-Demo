@@ -28,10 +28,10 @@ namespace DiDemo.FrameworkApi
             //builder.RegisterWebApiModelBinderProvider();
 
             var configuration = ConfiguratioHelper.FromAppSettings();
-            builder.Register(c => Options.Create(configuration.GetSection("PricesProvider").Get<PricesProviderOptions>()));
+            builder.Register(c => Options.Create(configuration.GetSection("PriceProvider").Get<PriceProviderOptions>()));
             // or 
             //builder.Register(c => ConfiguratioHelper.FromAppSettings());
-            //builder.Register(c => Options.Create(c.Resolve<IConfiguration>().GetSection("PricesProvider").Get<PricesProviderOptions>()));
+            //builder.Register(c => Options.Create(c.Resolve<IConfiguration>().GetSection("PriceProvider").Get<PriceProviderOptions>()));
 
             // Auto, usually a new instance per dependency
             builder
@@ -41,8 +41,8 @@ namespace DiDemo.FrameworkApi
                .RegisterType<CompanyService>()
                .As<ICompanyService>();
             builder
-               .RegisterType<PricesProvider>()
-               .As<IPricesProvider>();
+               .RegisterType<PriceProvider>()
+               .As<IPriceProvider>();
             builder
                .RegisterType<DbCompanyRepository>()
                .As<ICompanyRepository>();

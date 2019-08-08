@@ -19,14 +19,16 @@ namespace DiDemo.Api.Controllers
 
         public NoInjectionController()
         {
-            const int maxCountOfPrices = 3; // Read from config
+            // TODO: read from config
+            const string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Demo;Integrated Security=SSPI;";
+            const int maxCountOfPrices = 3;
 
             // BOOKMARK: 1.2 no DI
-            _dbConnection = new SqlConnection("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=Demo;Integrated Security=SSPI;");
+            _dbConnection = new SqlConnection(connectionString);
             _companyPriceProvider = new CompanyPriceProvider(
                 new CompanyService(new DbCompanyRepository(_dbConnection, new ConsoleLogger())),
-                new PricesProvider(
-                    Options.Create(new PricesProviderOptions
+                new PriceProvider(
+                    Options.Create(new PriceProviderOptions
                     {
                         MaxCountOfPrices = maxCountOfPrices
                     }),
@@ -36,8 +38,9 @@ namespace DiDemo.Api.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(long id)
         {
-            var companyPrice = _companyPriceProvider.GetPrice(id);
             RegisterForDispose();
+
+            var companyPrice = _companyPriceProvider.GetPrice(id);
             if (companyPrice == null)
             {
                 return NotFound();

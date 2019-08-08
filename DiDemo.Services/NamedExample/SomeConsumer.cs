@@ -5,10 +5,10 @@ namespace DiDemo.Services.NamedExample
 {
     public class SomeConsumer
     {
-        private readonly IService _service;
+        private readonly SomeService _service;
         private readonly Guid _id;
 
-        public SomeConsumer(IService service, ILogger logger)
+        public SomeConsumer(SomeService service, ILogger logger)
         {
             _service = service;
             _id = Guid.NewGuid();

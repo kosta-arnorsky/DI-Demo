@@ -82,12 +82,12 @@ namespace DiDemo.Cli
                 // Configure options
                 container
                     .AddExtension(new OptionsExtension())
-                    .Configure<PricesProviderOptions>(configuration.GetSection("PricesProvider"));
+                    .Configure<PriceProviderOptions>(configuration.GetSection("PriceProvider"));
 
                 // A new instance per dependency
                 container.RegisterType<ICompanyPriceProvider, CompanyPriceProvider>();
                 container.RegisterType<ICompanyService, CompanyService>();
-                container.RegisterType<IPricesProvider, PricesProvider>();
+                container.RegisterType<IPriceProvider, PriceProvider>();
                 container.RegisterType<ICompanyRepository, DbCompanyRepository>();
                 container.RegisterType<IStockRepository, DbStockRepository>();
 

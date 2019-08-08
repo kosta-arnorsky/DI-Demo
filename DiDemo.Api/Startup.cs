@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System;
 using System.Data.SqlClient;
 
@@ -37,29 +38,29 @@ namespace DiDemo.Api
             services.AddHostedService<BackgroundWorkService>();
 
             // BOOKMARK: 1.3 DI setup
-            services.Configure<PricesProviderOptions>(Configuration.GetSection("PricesProvider"));
+            services.Configure<PriceProviderOptions>(Configuration.GetSection("PriceProvider"));
 
             // A new instance per dependency
             services.AddTransient<ICompanyPriceProvider, CompanyPriceProvider>();
             services.AddTransient<IBackgroundCompanyPriceService, BackgroundCompanyPriceService>();
             services.AddTransient<ICompanyService, CompanyService>();
-            services.AddTransient<IPricesProvider, PricesProvider>();
+            services.AddTransient<IPriceProvider, PriceProvider>();
             services.AddTransient<ICompanyRepository, DbCompanyRepository>(sp
                 => new DbCompanyRepository(sp.GetSqlConnection<DbCompanyRepository>(), sp.GetService<ILogger>()));
             services.AddTransient<IStockRepository, StockRepositoryMock>(sp
                 => new StockRepositoryMock(sp.GetSqlConnection<StockRepositoryMock>()));
 
-            services.AddTransient(sp => new SomeConsumer(sp.GetService<Tuple<IService, SomeConsumer>>().Item1, sp.GetService<ILogger>()));
-            services.AddTransient(sp => new AnotherConsumer(sp.GetService<Tuple<IService, AnotherConsumer>>().Item1));
+            services.AddTransient(sp => new SomeConsumer(sp.GetService<Tuple<SomeService, SomeConsumer>>().Item1, sp.GetService<ILogger>()));
+            services.AddTransient(sp => new AnotherConsumer(sp.GetService<Tuple<SomeService, AnotherConsumer>>().Item1));
 
             // BOOKMARK: 7.2 "named" dependency
             // A new instance per scope (request in case of ASP.NET)
             // Replace with AddTransient to see the difference
-            services.AddScoped(sp => Tuple.Create<IService, SomeConsumer>(
-                new SomeService(sp.GetService<ILogger>()),
+            services.AddScoped(sp => Tuple.Create<SomeService, SomeConsumer>(
+                new SomeService(Options.Create(Configuration.GetSection("SomeService1").Get<SomeServiceOptions>()), sp.GetService<ILogger>()),
                 null));
-            services.AddScoped(sp => Tuple.Create<IService, AnotherConsumer>(
-                new AnotherService(),
+            services.AddScoped(sp => Tuple.Create<SomeService, AnotherConsumer>(
+                new SomeService(Options.Create(Configuration.GetSection("SomeService2").Get<SomeServiceOptions>()), sp.GetService<ILogger>()),
                 null));
 
             // BOOKMARK: 7.3 "named" dependency

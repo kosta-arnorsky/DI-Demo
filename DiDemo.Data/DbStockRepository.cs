@@ -16,30 +16,30 @@ namespace DiDemo.Data
             _random = new Random();
         }
 
-        public IReadOnlyCollection<decimal> GetPrices(string stockId)
+        public IReadOnlyCollection<decimal> GetPrices(string stockId, int maxCount)
         {
             using (var command = _connection.CreateCommand())
             {
-                // a DB query
+                // A DB query
                 switch (stockId)
                 {
                     case "MSFT":
                     case "FB":
                     case "AAPL":
-                        return GetRandomPrices();
+                        return GetRandomPrices(maxCount);
                     default:
                         return null;
                 }
             }
         }
 
-        private IReadOnlyCollection<decimal> GetRandomPrices()
+        private IReadOnlyCollection<decimal> GetRandomPrices(int maxCount)
         {
             decimal basePrice = _random.Next(10000);
 
-            var count = _random.Next(1, 11);
+            var count = _random.Next(2, maxCount + 1);
             var prices = new List<decimal>(count);
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i <= count; i++)
             {
                 prices.Add((basePrice + _random.Next(10) - 5) / 100);
             }

@@ -4,6 +4,6 @@ namespace DiDemo.Services.Stock
 {
     public interface IStockRepository
     {
-        IReadOnlyCollection<decimal> GetPrices(string stockId);
+        IReadOnlyCollection<decimal> GetPrices(string stockId, int maxCount);
     }
 }
