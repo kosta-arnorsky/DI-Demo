@@ -1,0 +1,837 @@
+{
+	"info": {
+		"_postman_id": "37559928-5d36-43e4-a1b6-538fd07eb894",
+		"name": "DI Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Core API - Demo - 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "749a06ca-37ab-49c6-978e-5d8e457c0286",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/demo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"demo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - Demo - Microsoft",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0085f7a-d4b5-4f3c-adbc-3aafe0e99436",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Microsoft\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Microsoft\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/demo/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"demo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - Demo - Google",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ea883f02-53c6-4415-8987-e6942a06ca52",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Google\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"Google: N/A\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/demo/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"demo",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - Demo - Facebook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "90a3475d-e270-4702-9b14-06443cdd2c4d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Facebook\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"Facebook: $888.22\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/demo/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"demo",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - NoInjection - 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "749a06ca-37ab-49c6-978e-5d8e457c0286",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/noinjection/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"noinjection",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - NoInjection - Microsoft",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0085f7a-d4b5-4f3c-adbc-3aafe0e99436",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Microsoft\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Microsoft\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/noinjection/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"noinjection",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - NoInjection - Google",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ea883f02-53c6-4415-8987-e6942a06ca52",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Google\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"Google: N/A\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/noinjection/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"noinjection",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - NoInjection - Facebook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7fac51df-14a6-4ab3-aa4c-cd67565d6d44",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Facebook\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Facebook\");",
+							"    pm.expect(pm.response.text()).to.not.eq(\"Facebook: $888.22\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/noinjection/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"noinjection",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - New - 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "749a06ca-37ab-49c6-978e-5d8e457c0286",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/new/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"new",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - New - Microsoft",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0085f7a-d4b5-4f3c-adbc-3aafe0e99436",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Microsoft\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Microsoft\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/new/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"new",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - New - Google",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ea883f02-53c6-4415-8987-e6942a06ca52",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Google\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"Google: N/A\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/new/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"new",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - New - Facebook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "90a3475d-e270-4702-9b14-06443cdd2c4d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Facebook\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"Facebook: $888.22\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/new/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"new",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - Task - 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51fc19a0-be8a-42c6-bc7e-699a47661cf1",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for company ID 1\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"Price retrieval of the company ID 1  has been scheduled.\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/task/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - Task - Microsoft",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "344a5350-0d2d-4a33-8136-df1278945c6f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Microsoft\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"Price retrieval of the company ID 2  has been scheduled.\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/task/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - Task - Google",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "159bb23e-bc01-43e0-a705-10cb83a19452",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Google\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"Price retrieval of the company ID 3  has been scheduled.\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/task/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - Task - Facebook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9a835bbe-ca44-48ee-938a-c5fc17aeac11",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Facebook\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"Price retrieval of the company ID 5  has been scheduled.\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/task/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - NamedExample - Some",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4758eab7-ceb2-4c94-8de6-4a31d9ab2e8a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Some\", function () {",
+							"    const regex = /^Consumer (\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}), some result: \\d; Consumer (\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}), some result: \\d$/;",
+							"    const response = pm.response.text();",
+							"    pm.expect(regex.test(response)).to.be.true;",
+							"    pm.expect(regex.exec(response)[1]).to.not.eq(regex.exec(response)[2]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/namedexample/some",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"namedexample",
+						"some"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Core API - NamedExample - Another",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7fefce7-8cbf-4254-88a1-bcc1c36fcbd5",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Some\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Another result: \");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/api/namedexample/another",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"namedexample",
+						"another"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Framework API - Demo - 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "749a06ca-37ab-49c6-978e-5d8e457c0286",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:62470/api/demo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62470",
+					"path": [
+						"api",
+						"demo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Framework API - Demo - Microsoft",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0085f7a-d4b5-4f3c-adbc-3aafe0e99436",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Microsoft\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Microsoft\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:62470/api/demo/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62470",
+					"path": [
+						"api",
+						"demo",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Framework API - Demo - Google",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "80e8a545-a082-41c8-89b7-89bfb72bb9ce",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is for Google\", function () {",
+							"    pm.expect(pm.response.text()).to.eq(\"\\\"Google: N/A\\\"\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:62470/api/demo/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62470",
+					"path": [
+						"api",
+						"demo",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
